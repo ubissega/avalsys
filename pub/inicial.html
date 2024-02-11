@@ -153,7 +153,8 @@
 
       </section>
     </div>
-  <select class="select-control" name="a">
+    <span class="form-control text-uppercase" id=nome></span>
+  <select class="form-control" name="a">
     <option value="nomesf.txt">Feminino</option>
     <option value="nomesm.txt">Masculino</option>
   </select>
@@ -287,6 +288,7 @@ document.querySelector('select[name="a"]').oninput=function(){
     //console.log(this.value) 
   document.querySelector('input[name="s"]').oninput=function(){
     carregarArquivoTexto(document.querySelector('select[name="a"]').value,this.value);
+  
   }
 }
 
@@ -304,6 +306,7 @@ fetch(caminhoArquivo)
 // Exibe as linhas no console (você pode fazer o que desejar com elas)
 //console.log(data.replace(/,/g, '\n'));
 console.log(data.toLowerCase().includes(","+nome.toLowerCase()+","));
+  document.getElementById('nome').innerText=nome;
 })
 .catch(error => {
 // Trata erros
