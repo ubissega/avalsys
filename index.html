@@ -1,0 +1,158 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="CEI, and Bootstrap contributors">
+    <title>Signin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="config/style/signin.css" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    body{
+      background-color: rgb(7, 55, 99, 1.0);
+    }
+    .btn-submit{
+      background-color: rgb(206, 211, 214, 1.0);
+      color: rgb(0, 119, 192, 1.0);
+    }
+    .btn-submit:hover{
+      background-color: rgb(240,194, 68, 1.0);
+    }
+    .btn-submit:active{
+      background-color: rgb(236, 114, 16, 1.0);
+    }
+
+    .btn-create{
+      background-color: rgb(7, 55, 99, 1.0);
+      color: rgb(240,194, 68, 1.0);
+    }
+    .btn-create:hover{
+      background-color: rgb(240,194, 68, 1.0);
+    }
+    .btn-create:active{
+      background-color: rgb(236, 114, 16, 1.0);
+    }
+    .text-pattern{
+      color: rgb(240,194, 68, 1.0);
+    }
+  </style>
+
+    
+  </head>
+<body class="text-center">
+    
+<main class="form-signin">
+    <img class="mb-4" src="./img/logo_main.png" alt="CEI" width="100%">
+    <label id="relogio" class="text-warning"></label>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="user" value="707210048@ucm.ac.mz">
+      <label for="floatingInput">Usuario</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="pass" value="123451">
+      <label for="floatingPassword">Senha</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox"  value="remember-me"> <span class="text-pattern"> Remember me</span>
+      </label>
+    </div>
+    <button class="w-100 btn btn-submit" type="submit" id="submeter">Entrar</button>
+
+    <a href="pre_config/conta.html" class="w-100 btn btn-create">Criar conta</a>
+</main>
+  <!-- Adicione outros scripts específicos da página, se necessário -->
+
+  <!-- Inclua o arquivo JavaScript principal -->
+  <script type="module">
+    import { getAuth, signInWithEmailAndPassword ,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    // index.js
+    import { init } from './config/conexao_firebase_aval.js';
+    const auth=getAuth(init);
+
+
+    // Função para lidar com o login
+    document.getElementById('submeter').addEventListener('click', function () {
+        const email = document.getElementById('user').value;
+        const senha = document.getElementById('pass').value;
+
+        signInWithEmailAndPassword(auth, email, senha)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(`Usuário autenticado: ${user.email}`);
+                window.location.href='pub/inicial.html';
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                document.getElementById('relogio').style.color='red';
+                console.error(`Erro de autenticação: ${errorCode} - ${errorMessage}`);
+            });
+            
+   });
+
+
+signOut(auth).then(() => {
+    console.log('Sessão encerrada');
+}).catch((error) => {
+    console.error('Erro ao encerrar a sessão:', error);
+});
+
+
+function atualizarRelogio() {
+  var dataAtual = new Date();
+  var horas = dataAtual.getHours();
+  var minutos = dataAtual.getMinutes();
+  var segundos = dataAtual.getSeconds();
+
+  // Adapte o formato conforme necessário (exemplo: HH:MM:SS)
+  var formatoRelogio = horas + ':' + minutos + ':' + segundos;
+
+  // Exibe o relógio no elemento com ID "relogio"
+  document.getElementById('relogio').textContent = formatoRelogio;
+
+  // Adicione a ação que você deseja executar a cada segundo aqui
+  // Por exemplo, exibir uma mensagem no console
+  console.log('Ação a cada segundo');
+
+
+  // Adicione mais lógica aqui conforme necessário
+
+}
+
+// Atualiza o relógio a cada segundo
+setInterval(atualizarRelogio, 1000);
+atualizarRelogio();
+
+
+  </script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      
+</body>
+</html>
