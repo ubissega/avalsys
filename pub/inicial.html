@@ -153,7 +153,11 @@
 
       </section>
     </div>
-
+  <select class="select-fontrol" name="a">
+    <option value="nomesf.txt">Feminino</option>
+    <option value="nomesm.txt">Masculino</option>
+  </select>
+    <input class="form-control" type="search" name="s" placeholder="Escreva o nome"/>
 
 <script type="text/javascript">
 
@@ -276,7 +280,7 @@ todos_elementos_select.onclick=function(){
 });
 
 
-/*
+
 
 
 document.querySelector('select[name="a"]').oninput=function(){
@@ -285,7 +289,7 @@ document.querySelector('select[name="a"]').oninput=function(){
     carregarArquivoTexto(document.querySelector('select[name="a"]').value,this.value);
   }
 }
-*/
+
 // Função para carregar um arquivo de texto e processar seus dados
 function carregarArquivoTexto(caminhoArquivo,nome) {
   console.log(caminhoArquivo) 
