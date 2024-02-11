@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Inicial</title>
+</head>
+<body>
+
+    <input type="text" name="name" id="cadeira" placeholder="Cadeira" />
+    <input type="text" id="tipoTeste" placeholder="Tipo de teste" />
+
+    <!--
+    <select id="tipoTeste">
+        <option selected>Escolha...</option>
+        <option id="tipoTeste">Primeiro</option>
+        <option id="tipoTeste" value="">Primeiro Extraoridinario</option>
+        <option id="tipoTeste">Segundo</option>
+        <option id="tipoTeste">Segundo Extraoridinario</option>
+        <option id="tipoTeste">Trabalho</option>
+        <option id="tipoTeste">Exame</option>
+        <option id="tipoTeste">Recorencia</option>
+    </select>
+        -->
+    <input type="date" name="name" id="dataFrequencia" placeholder="Data de frequencia" />
+    <input type="text" name="name" id="nomeDocente" placeholder="Nome do docente" />
+    <input type="text" name="name" id="pergunta" placeholder="Pergunta" />
+    <input type="text" name="name" id="resposta" placeholder="Resposta" />
+    <button id="inserir">Inserir</button>
+    <script>
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref,set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAZZtf0byQv9USPR6DoScnA2j7DRqWJtn8",
+            authDomain: "aval-12f90.firebaseapp.com",
+            databaseURL: "https://aval-12f90-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "aval-12f90",
+            storageBucket: "aval-12f90.appspot.com",
+            messagingSenderId: "270980945421",
+            appId: "1:270980945421:web:eaee7dd61861112db72744",
+            measurementId: "G-9BPMM7C915"
+        };
+
+        // Initialize Firebase
+       // const app = initializeApp(firebaseConfig);
+//const db = getDatabase(app);
+
+
+
+
+        var cadeira = document.getElementById('cadeira');
+        var tipoTeste = document.getElementById('tipoTeste');
+        var dataFrequencia = document.getElementById('dataFrequencia');
+        var nomeDocente = document.getElementById('nomeDocente');
+        var pergunta = document.getElementById('pergunta');
+        var resposta = document.getElementById('resposta');
+
+
+
+        cadeira.style.display = "grid";
+        tipoTeste.style.display = "grid";
+        dataFrequencia.style.display = "grid";
+        nomeDocente.style.display = "grid";
+        pergunta.style.display = "grid";
+        /*
+        document.getElementById('inserir').addEventListener('click', function () {
+            set(ref(db, "cadeira/" + cadeira.value), {
+                cadeira: cadeira.value,
+                tipoTeste: tipoTeste.value,
+                dataFrequencia: dataFrequencia.value,
+                nomeDocente: nomeDocente.value,
+                pergunta: pergunta.value,
+                resposta: resposta.value
+            })
+                .then(() => {
+                    alert("Sucesso");
+                })
+                .catch((error) => {
+                    alert("Sem sucesso\n\nO erro foi\n" + error.message);
+                });
+        });
+        */
+    </script>
+</body>
+</html>

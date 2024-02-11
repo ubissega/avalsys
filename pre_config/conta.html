@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	    <!-- Bootstrap core CSS -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      body{
+        background-color: rgb(7, 55, 99, 1.0);
+        color: rgb(240,194, 68, 1.0);
+      }
+      header{
+        background-color: rgba(236, 114, 16, 255);
+        color: rgb(255, 255, 255, 1.0);
+      }
+    	main{
+    		margin: 10%;
+    	}
+
+    .btn-submit{
+      background-color: rgb(206, 211, 214, 1.0);
+      color: rgb(0, 119, 192, 1.0);
+    }
+    .btn-submit:hover{
+      background-color: rgb(240,194, 68, 1.0);
+    }
+    .btn-submit:active{
+      background-color: rgb(236, 114, 16, 1.0);
+    }
+
+    .invalid-feedback{
+
+      color: #fff;
+      background-color: rgb(136, 0, 27, 1.0);
+    }
+    .container>div{
+      
+    }
+    .text-pattern{
+      color: argb(1,236, 114, 16);
+    }
+
+    </style>
+</head>
+<body class="text-center">
+	<div class="container">
+		<header>
+			<nav class="navbar navbar-light">
+			  <div class="container-fluid">
+			  	<a class="navbar-brand" href="../index.html">
+			      Voltar
+			    </a>
+			    <a class="navbar-brand" href="#">
+			      Ciar conta
+			    </a>
+			  </div>
+			</nav>
+		</header>
+		<main >
+			<form action="crud.html?nome=as&apelido=w" method="post" class="row g-3 needs-validation" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Nome proprio</label>
+    <input type="text" class="form-control" id="validationCustom01" required>
+    <div class="invalid-feedback">
+      Nome nao fornecido.
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Apelido</label>
+    <input type="text" class="form-control" id="validationCustom02" required>
+    <div class="invalid-feedback">
+      Apelido nao fornecido.
+    </div>
+  </div>  
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Curso</label>
+    <select class="form-select" required aria-label="select example">
+      <option value="">Mencione o curso</option>
+      <option value="1">...</option>
+    </select>
+    <div class="invalid-feedback">Especifique o curso</div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Faculdade</label>
+    <select id="faculdade" class="form-select" required aria-label="select example">
+      <option value="">Mencione a faculdade</option>
+      <option value="1">...</option>
+    </select>
+    <div class="invalid-feedback">Especifique a faculdade</div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Conta</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="text" class="form-control" id="conta" aria-describedby="inputGroupPrepend" placeholder="700000000@ucm.ac.mz" required>
+      <div class="invalid-feedback">
+        Conta nao fornecido.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Email particular</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="text" class="form-control" id="email" aria-describedby="inputGroupPrepend" placeholder="prefixo@gmail.com" required>
+      <div class="invalid-feedback">
+        Email nao fornecido.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">Senha</label>
+    <input type="text" class="form-control" id="senh" required>
+    <div class="invalid-feedback">
+      Sneha nao forncida.
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">Confirma senha</label>
+    <input type="text" class="form-control" id="senha" required>
+    <div class="invalid-feedback">
+      Por favor, confirme a senha.
+    </div>
+  </div>
+
+    
+  <div class="col-12">
+    <div class="form-check checkbox">
+      <input  type="checkbox" value="" id="termos" required>Aceitar os termoss
+      <div class="invalid-feedback">
+        Para aceitarmos a sua submissao, tens que aceitar nossos termos.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-submit" type="submit" id="submeter" onclick="enviarFormulario()">Finalizar</button>
+  </div>
+</form>
+<a class="text-warning" href="crud.html?nome=as&apelido=w">Vamor</a>
+		</main>
+	</div>
+
+  <script type="module">
+    // script.js
+function enviarFormulario() {
+    const formulario = document.getElementById('meuFormulario');
+    const dados = new FormData(formulario);
+
+    fetch('https://exemplo.com/seu-endpoint', {
+        method: 'POST',
+        body: dados
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Faça algo com a resposta (data) do servidor, se necessário
+        console.log('Resposta do servidor:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao enviar formulário:', error);
+    });
+}
+
+
+/*
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getDB } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    // index.js
+    import { init } from './config/conexao_firebase_aval.js';
+    const auth=getAuth(init);
+        
+    // Criação do usuário com e-mail e senha
+    firebase.auth().createUserWithEmailAndPassword('email@example.com', 'senha123')
+      .then((userCredential) => {
+        // Usuário criado com sucesso
+        const user = userCredential.user;
+
+        // Armazenar informações adicionais no Realtime Database
+        const userInfo = {
+          nome: 'Nome do Usuário',
+          apelido: 'Apelido do Usuário',
+          curso: 'Curso do Usuário',
+          faculdade: 'Faculdade do Usuário',
+          conta: 'Conta do Usuário',
+          email: user.email
+        };
+
+        firebase.database().ref('usuarios/' + user.uid).set(userInfo)
+          .then(() => {
+            console.log('Usuário criado e informações adicionais armazenadas com sucesso.');
+          })
+          .catch((error) => {
+            console.error('Erro ao armazenar informações adicionais:', error.message);
+          });
+      })
+      .catch((error) => {
+        console.error('Erro ao criar usuário:', error.message);
+      });
+    
+    //document.getELementById('submeter').addEventListener('click', function () {
+
+      const nome=document.getELementById('nome');
+      const apelido=document.getELementById('apelido');  
+      const curso=document.getELementById('curso');
+      const faculdade=document.getELementById('faculdade');
+      const conta=document.getELementById('conta'); 
+      const email=document.getELementById('email'); 
+      const senh=document.getELementById('senh');
+      const senha=document.getELementById('senha');
+      const termos=document.getELementById('termos'); 
+
+      if(senh.value==senha.value){
+        // Redireciona para a página especificada
+        //window.location.href = 'https://www.exemplo.com/outra-pagina.html';
+        alert("as");
+
+
+      }else{
+        alert("erro")
+      }
+
+   // });
+   */
+  </script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="../config/js/validation.js"></script>
+</body>
+</html>

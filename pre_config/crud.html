@@ -1,0 +1,26 @@
+<!-- pagina-tratamento.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de Dados</title>
+</head>
+<body>
+    <script>
+        // Função para obter parâmetros da URL
+        function obterParametrosDaURL() {
+            const parametros = new URLSearchParams(window.location.search);
+    const parametro1 = parametros.get('nome');
+    const parametro2 = parametros.get('apelido');
+            // Realize tratamentos com os parâmetros
+            console.log('Parâmetro 1:', parametro1);
+            console.log('Parâmetro 2:', parametro2);
+            // Faça o que for necessário com os dados
+        }
+
+        // Chama a função ao carregar a página
+        obterParametrosDaURL();
+    </script>
+</body>
+</html>

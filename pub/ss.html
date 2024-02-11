@@ -1,0 +1,341 @@
+
+  function atualizarRelogio() {
+
+    const box_texte_normal = document.getElementById('box-texte-normall');    
+    const box_texte_extra = document.getElementById('box-texte-extraa');
+
+    // Obtém a data atual
+    const agora = new Date();
+
+    // Formata a hora, minutos e segundos
+    const horas = agora.getHours().toString().padStart(2, '0');
+    const minutos = agora.getMinutes().toString().padStart(2, '0');
+    const segundos = agora.getSeconds().toString().padStart(2, '0');
+
+
+
+    // Atualiza o conteúdo do elemento com id "relogio"
+    document.getElementById('relogio').innerHTML = `${horas}:${minutos}:${segundos}`;
+    
+    // Formata a data
+    const dia = agora.getDate().toString().padStart(2, '0');
+    const mes = (agora.getMonth() + 1).toString().padStart(2, '0'); // Meses são zero indexados
+    const ano = agora.getFullYear();
+
+
+    if(horas=="13" && minutos=="50"){
+
+      window.location.href='../index.html';
+
+    }
+
+    if(segundos<=30){
+      console.log(box_texte_normal.id);
+      box_texte_normal.style.display='none';
+      box_texte_extra.style.display='flex';
+    }else{
+      console.log(box_texte_extra.id);
+      box_texte_normal.style.display='flex';
+      box_texte_extra.style.display='none';
+    }
+    // Atualiza o conteúdo do elemento com id "data"
+    document.getElementById('data').innerHTML = `${dia}/${mes}/${ano}`;
+  }
+  // Atualiza o relógio a cada segundo
+  setInterval(atualizarRelogio, 1000);
+
+  // Chama a função uma vez para exibir o tempo inicial
+  atualizarRelogio();
+  
+    import { getAuth ,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getDatabase,ref,set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    // index.js
+    import { init } from '../config/conexao_firebase_aval.js';
+    const auth=getAuth(init);
+    const email=document.querySelector('span[name="email"]');
+
+        onAuthStateChanged(auth,(user) => {
+            if (user) {
+                // Usuário está autenticado
+                console.log('Usuário está autenticado:', user.email);
+                email.innerHTML=user.email;
+
+
+            } else {
+                // Usuário não está autenticado
+                console.log('Usuário não está autenticado');
+                window.location.href='../index.html';
+                //870249028 jina
+            }
+        });
+
+
+    var v1=0;
+    const v2=0;
+    const v3=0;
+    const v4=0;
+
+    const database = getDatabase(init);
+
+    document.getElementById('add-nota').onclick=function () {
+      const t1 = document.getElementById('primeiro-texte-normal');
+      const t2 = document.getElementById('segundo-texte-normal');
+      const tr = document.getElementById('trabalho');
+      const exame = document.getElementById('exame');
+
+      const tipo_extra = document.getElementById('tipo-extra');
+      const nota_extra = document.getElementById('nota-extra');
+
+      if(t1.value!=""){
+        v1=t1.value;
+        console.log("Nota nova primeira nota\t:",v1);
+
+      }else{
+        t1.disabled = false;
+        if(v1!=0){
+          t1.disabled = true;
+        }
+        if(v1<10){
+          t1.style.color="red";
+
+        }
+        t1.value = v1;
+        console.log("Nota que ja existia\t:",v1);
+        
+
+      }
+      if(t2.value!=""){
+
+        v2=t2.value;
+        console.log("Nota nova segunda nota\t:",v2);
+
+        }else{
+          t2.disabled = false;
+          if(v2!=0){
+            t2.disabled = true;
+          }
+          if(v2<10){
+            t2.style.color="red";
+
+          }
+        t2.value = v2;
+        console.log("Nota que ja existia\t:",v2 );
+        }
+        const adm=(parseFloat(v1)+parseFloat(v2));
+        console.log(adm);
+
+      // Adicionar a mensagem ao banco de dados do Firebase
+      database.ref('mensagens').push(mensagem);
+
+      mensagemInput.value = '';
+    }
+
+    // Ouvir por alterações no banco de dados do Firebase
+    database.ref('mensagens').on('child_added', (snapshot) => {
+      const mensagem = snapshot.val();
+      const mensagensList = document.getElementById('mensagens');
+      const li = document.createElement('li');
+      li.textContent = mensagem;
+      mensagensList.appendChild(li);
+    }
+
+    }
+
+
+ 
+
+
+
+    // body...
+      // Array para armazenar informações sobre as cadeiras e notas
+    const cursos = [];
+
+    // Função para adicionar uma cadeira e nota ao array
+    function adicionarCadeiraENota(nome,estencao,periodo) {
+        const curso = {
+            nome_curso:nome,
+            estencao_curso:estencao,
+            periodo_curso:periodo
+        };
+
+        cursos.push(curso);
+    }
+
+    // Exemplo de uso da função para adicionar cadeiras e notas
+    adicionarCadeiraENota('Tecnologias de informacao', 'FENG');
+    adicionarCadeiraENota('Civil', 'FENG','Pos-laboral');
+    adicionarCadeiraENota('Electrica', 'FENG','Laboral');
+
+            // Array para armazenar informações sobre as cadeiras e notas
+    const frequencias = [];
+
+    // Função para adicionar uma cadeira e nota ao array
+    function adicionarFrequenciaDosCursos(curso,nome,cordenador) {
+        const frequencia = {
+          curso_frequencia:curso,
+          nome_frequencia:nome,
+          cordenador_frequencia:cordenador
+        };
+
+        frequencias.push(frequencia);
+    }
+
+    // Exemplo de uso da função para adicionar cadeiras e notas
+    adicionarFrequenciaDosCursos('Tecnologias de informacao', 'Primeiro ano','Mohammad');
+    adicionarFrequenciaDosCursos('Tecnologias de informacao', 'Segundo ano','Nyamisse');
+    adicionarFrequenciaDosCursos('Tecnologias de informacao', 'Terceiro ano','Nyacasse');
+    adicionarFrequenciaDosCursos('Tecnologias de informacao', 'Quarto ano','Nyacasse');
+
+
+            // Array para armazenar informações sobre as cadeiras e notas
+    const cadeiras = [];
+
+    // Função para adicionar uma cadeira e nota ao array
+    function adicionarCadeiras(curso,nome_frequencia,semestre,nome,credito,docente) {
+        const cadeira = {
+          curso:curso,
+          nome_frequencia:nome_frequencia,
+          semestre:semestre,
+          nome:nome,
+          credito:credito,
+          docente:docente
+        };
+
+        cadeiras.push(cadeira);
+    }
+
+    // Exemplo de uso da função para adicionar cadeiras e notas
+    adicionarCadeiras('Tecnologias de informacao', 'Primeiro ano','primeiro','DIAC','Vasco');
+    adicionarCadeiras('Tecnologias de informacao', 'Segundo ano','segundo','EDA','Lorgat');
+    adicionarCadeiras('Tecnologias de informacao', 'Segundo ano','segundo','WEB','Watson');
+    adicionarCadeiras('Tecnologias de informacao', 'Segundo ano','segundo','TI','Bento');
+
+    // Exibindo o array resultante
+    console.log(cursos);
+    console.log(frequencias);
+    console.log(cadeiras.nome);
+        // Dados estruturados com nomes de avôs, pais, filhos e netos
+    const dadosFamilia = [
+      {
+        nome: 'Primeiro ano',
+        filhos: [
+          {
+            nome: 'Semestre 1',
+            netos: [
+              {
+                nome: 'DIAC',
+                bisnetos: ['Neto Joaquim']
+              },
+              {
+                nome: 'EDA',
+                bisnetos: ['Neta Sofia']
+              }
+            ]
+          },
+          {
+            nome: 'Semetsre 2',
+            netos: [
+              {
+                nome: 'WWW',
+                bisnetos: ['Neto Lucas']
+              },
+              {
+                nome: 'Filha Maria',
+                bisnetos: ['Neta Isabel']
+              }
+            ]
+          }
+        ]
+
+      },
+      {
+        nome: 'Segundo ano',
+        filhos: [
+          {
+            nome: 'Semestre 3',
+            netos: [
+              {
+                nome: 'DIAC',
+                bisnetos: ['Neto Joaquim']
+              },
+              {
+                nome: 'EDA',
+                bisnetos: ['Neta Sofia']
+              }
+            ]
+          },
+          {
+            nome: 'Semetsre 4',
+            netos: [
+              {
+                nome: 'WWW',
+                bisnetos: ['Neto Lucas']
+              },
+              {
+                nome: 'Filha Maria',
+                bisnetos: ['Neta Isabel']
+              }
+            ]
+          }
+        ]
+        
+      }
+      // Adicione mais objetos conforme necessário
+    ];
+  
+
+
+
+
+
+// Função para criar a lista e exibir os nomes de avôs, pais, filhos e netos
+
+// Chama a função para criar a lista e exibir os nomes de avôs, pais, filhos e netos
+criarListaFamilia();
+
+
+//Actriclue
+// Dados para o conteúdo dinâmico
+const dadosConteudo = {
+  titulo: 'Principal',
+  link: '../components/carousel/',
+};
+const components = document.getElementById('components');
+
+// Função para criar e adicionar o conteúdo dinâmico ao elemento
+function adicionarConteudoDinamico() {
+  // Cria um elemento <article>
+  const articleElement = document.createElement('article');
+  articleElement.className = 'my-3';
+  articleElement.id = 'panel-calcular-notas';
+
+  // Cria um elemento <div> para o cabeçalho
+  const divCabecalho = document.createElement('div');
+  divCabecalho.className = 'bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2';
+
+  const h33 = document.createElement('h3');
+  h33.textContent='As notas';
+  const aa = document.createElement('a');
+
+  // Cria um elemento <div> para o conteúdo interno
+  const divConteudoInterno = document.createElement('div');
+  divConteudoInterno.className = 'bd-example';
+
+  divConteudoInterno.textContent='pppppppppp';
+
+  // Adiciona o <article> ao corpo do documento
+  components.appendChild(articleElement);
+
+
+  // Adiciona a div de cabeçalho ao <article>
+  divCabecalho.appendChild(h33);
+  divCabecalho.appendChild(aa);
+  articleElement.appendChild(divCabecalho);
+  // Adiciona a div de conteúdo interno ao <article>
+  articleElement.appendChild(divConteudoInterno);
+}
+
+// Chama a função para adicionar o conteúdo dinâmico
+adicionarConteudoDinamico();
+
+  
