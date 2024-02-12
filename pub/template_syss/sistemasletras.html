@@ -10,7 +10,7 @@
     <article name="article_conteudo_geralizado" class="my-3" id="panel-principal">
       <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
         <h3>Nomes</h3>
-        <a class="d-flex align-items-center" href="../components/carousel/">Desftrute de nos, bons conteudos e guarde suas informacoes escolares, garantimos a sua seguran</a>
+        <a class="d-flex align-items-center" href="../components/carousel/">Pequise por algum nome e saberá para que genero o nome merece.</a>
 
       </div>
 
@@ -29,21 +29,23 @@
 <script type="text/javascript">
 
 document.getElementById('search').oninput=function(){
-  carregarArquivoTexto("./nomes/nomesf.txt",this.value);  
+  carregarArquivoTexto("./nomes/nomesf.txt",this.value.replace(' ',''));  
 }
 
 // Função para carregar um arquivo de texto e processar seus dados
 function carregarArquivoTexto(caminhoArquivo,nome) {
   
   
-  document.getElementById('resultado').innerText=nome+" nao ee nome";
+  document.getElementById('resultado').innerText=nome+" não é nome";
   // Faz uma requisição para carregar o arquivo de texto Converte a resposta em texto
   //---------------------------------------------------------------------------------
   fetch("nomes/nomesf.txt").then(response => response.text()).then(data => {
 
   
     if(data.toLowerCase().includes(","+nome.toLowerCase()+",")){
-      document.getElementById('resultado').innerText=nome+" ee nome feminino";
+      if(nome!=''){
+        document.getElementById('resultado').innerText=nome+" não é feminino";
+      }
     }
   })
   .catch(error => {
@@ -51,7 +53,9 @@ function carregarArquivoTexto(caminhoArquivo,nome) {
   });
   fetch("nomes/nomesm.txt").then(response => response.text()).then(data => {  
     if(data.toLowerCase().includes(","+nome.toLowerCase()+",")){
-      document.getElementById('resultado').innerText=nome+" ee nome masculino";
+      if(nome!=''){
+        document.getElementById('resultado').innerText=nome+" não é masculino";
+      }
     }
   })
   .catch(error => {
