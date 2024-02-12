@@ -30,6 +30,11 @@
           font-size: 3.5rem;
         }
       }
+      @media (max-width: 1200px) {
+        aside>div {
+            display: none;
+        }
+      }
       body{
         background-color: rgb(7, 55, 99, 1.0);
         color: rgb(7, 55, 99, 1.0);
@@ -52,7 +57,21 @@
       #relogio{
         font-size: 15px;
       }
+
+
+
+
+
+
+
+
+
+
     </style>
+    <script type="text/javascript">
+
+
+    </script>
 
   </head>
   <body class="">
@@ -76,89 +95,27 @@
     </li>
   </div>
 </header>
-  <aside name="body_topicos_syss" class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-    <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">Conteudo</h2>
-    <nav name="container_topicos_syss" class="small" id="toc">
-      <button name="btn_topicos_syss" class=" btn btn-primary d-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">    
-      </button>
-      <div name="content" class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <p name="desc_topicos_syss">            
-            <ul class="list-unstyled ps-3 ">
-              <li><a name="link_on_conteudo" class="d-inline-flex align-items-center rounded" href="#typography">Typography</a></li>
-            </ul>
-          </p>
+  <aside id="idaside_conteudo" name="body_topicos_syss" class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+    <h2 class="h6 pt-4 pb-3 mb-4 border-bottom " id="btnConteudo">Conteudo</h2>
+    <div class="dropdown-content">
+      <nav name="container_topicos_syss" class="small" id="toc">
+          <button name="btn_topicos_syss" class=" btn btn-primary d-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></button>
+       
+          
+        <div name="content" class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p name="desc_topicos_syss">            
+              <ul class="list-unstyled ps-3 ">
+                <li><a name="link_on_conteudo" class="d-inline-flex align-items-center rounded" href="#typography">Typography</a></li>
+              </ul>
+            </p>
+          </div>
         </div>
-      </div>
-    </nav>
-  </aside>
-        
-    <div name="container_conteudo_geral" class="bd-cheatsheet container-fluid bg-body" style="display: none;">
-      <section name="select_conteudo_geralizado" id="components">
-        <h2 name="titular_do_conteudo_geralizado" class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3">Paniel <span id="relogio"></span></h2>
-
-        <article name="article_conteudo_geralizado" class="my-3" id="panel-principal">
-          <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-            <h3>Principal</h3>
-            <a class="d-flex align-items-center" href="../components/carousel/">Desftrute de nos, bons conteudos e guarde suas informacoes escolares, garantimos a sua seguran;a</a>
-
-          </div>
-
-          <div>
-            <div class="bd-example">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
-
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"/><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
-
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"/><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                  </div>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-            </div>
-          </div>
-        </article>
-
-      </section>
+      </nav>
     </div>
-    <span class="form-control text-uppercase" id=nome></span>
-  <select class="form-control" name="a">
-    <option value="nomesf.txt">Feminino</option>
-    <option value="nomesm.txt">Masculino</option>
-  </select>
-    <input class="form-control" type="search" name="s" placeholder="Escreva o nome"/>
+  </aside>
+  <object class="bd-cheatsheet container-fluid bg-body" name="container_conteudo_geral" width="100%" height="700px" style="display: none;"></object>
+
 
 <script type="text/javascript">
 
@@ -171,7 +128,8 @@ const listaDeConteudo = [
     { titulo: "Título 2j", texto: "Texto correspondente ao Título 2" },
     { titulo: "Título pp1", texto: "Texto correspondente ao Título 1" },
     { titulo: "Título 2nn", texto: "Texto correspondente ao Título 2" },
-    { titulo: "Título 3bb", texto: "Texto correspondente ao Título 3" }
+    { titulo: "Título 3bb", texto: "Texto correspondente ao Título 3" },
+    { titulo: "sistemasletras", texto: "Texto correspondente ao Título 3" }
 ];
 
 
@@ -188,21 +146,10 @@ listaDeConteudo.forEach(item => {
   //----------------------
 
   const navClonado_topicos_syss = document.querySelector('nav[name="container_topicos_syss"]').cloneNode(true);
-  const divClonado_conteudo_geral = document.querySelector('div[name="container_conteudo_geral"]').cloneNode(true);
-
-
-  const todos_elementos_select = divClonado_conteudo_geral.querySelector('section[name="select_conteudo_geralizado"]');
-
-  const todos_elementos_do_select = divClonado_conteudo_geral.querySelector('section[name="select_conteudo_geralizado"]').querySelectorAll('*');
-  const todos_elementos_do_article = divClonado_conteudo_geral.querySelector('section[name="select_conteudo_geralizado"]').querySelector('article[name="article_conteudo_geralizado"]').querySelectorAll('*'); 
-  
+  const object_conteudo_geral = document.querySelector('object[name="container_conteudo_geral"]');
 
   var button = navClonado_topicos_syss.querySelector('button[name="btn_topicos_syss"]');
   var a = navClonado_topicos_syss.querySelector('a[name="link_on_conteudo"]');
-
-  const select_conteudo_geralizado = divClonado_conteudo_geral.querySelector('section[name="select_conteudo_geralizado"]');
-  var titular_do_conteudo_geralizado = divClonado_conteudo_geral.querySelector('h2[name="titular_do_conteudo_geralizado"]');
-  var article_conteudo_geralizado = divClonado_conteudo_geral.querySelector('article[name="article_conteudo_geralizado"]');
 
 
   //mecanismo para desbloquear o primeiro button do topico
@@ -211,107 +158,36 @@ listaDeConteudo.forEach(item => {
     button.classList.add('d-none');
   }
 
-    todos_elementos_select.id=button.innerText.toLowerCase().replace(/\s+/g, '');
+  //Trabalhar nos filho do select
+  //-------------------------------
 
-    //Trabalhar nos filho do select
-    //-------------------------------
-
-    button.setAttribute('data-bs-target',"#"+item.titulo.replace(/\s+/g, ''));
-    button.classList.remove('d-none');
-    navClonado_topicos_syss.querySelector('div[name="content"]').id=item.titulo.replace(/\s+/g, '');
-    //button.classList.remove('d-none');
-    
-    // Define o título e o texto para o clone
-    button.textContent = item.titulo;
-    navClonado_topicos_syss.querySelector('p[name="desc_topicos_syss"]').textContent = item.texto;
-    a.setAttribute('href',"#"+item.titulo.replace(/\s+/g, '').toLowerCase());
-    
-    todos_elementos_do_select.forEach(elemento => {
-        select_conteudo_geralizado.id="div"+item.titulo.replace(/\s+/g, '').toLowerCase();
-        titular_do_conteudo_geralizado.innerText=item.titulo;
-        article_conteudo_geralizado.id=item.titulo.replace(/\s+/g, '').toLowerCase();
-    });
-
-    // Trabalhar nos filho do article
-    //-----------------------------------------
-    todos_elementos_do_article.forEach(elemento => {
-      elemento.innerText="Venah";
-
-    });
-
-    // Adiciona o clone ao documento
-    document.querySelector('aside[name="body_topicos_syss"]').appendChild(navClonado_topicos_syss);
-    document.body.appendChild(divClonado_conteudo_geral);
-    //divClonado_conteudo_geral.style.display="none";
-
-
-
-    function r() {
-      // body...
-      todos_elementos_do_select.forEach(elemento => {
-        //divClonado_conteudo_geral.style.display = "none";
-        console.log(divClonado_conteudo_geral.getAttribute('name'));
-    });
-    }
-a.onclick = function(event) {
-  //const valorAtributoCustomizado = divClonado_conteudo_geral.getAttribute('name');
-//console.log(valorAtributoCustomizado);
-
-    r();
-    
-
-    // Verifica se o clique ocorreu dentro do elemento clonado
-    if (todos_elementos_select.id === "div"+a.getAttribute('href').replace("#", "")) {
-        // Altera o estilo de exibição para 'block'
-        todos_elementos_select.parentNode.style.display = "block";
-    }
-    console.log(event.target+"\n   0"+divClonado_conteudo_geral);
-};
-
-
-todos_elementos_select.onclick=function(){
-        todos_elementos_select.parentNode.style.display = "block";
-    console.log(event.target+"\n   0"+divClonado_conteudo_geral);  
-}
-
-
-
-
-
-});
-
-
-
-
-
-document.querySelector('select[name="a"]').oninput=function(){
-    //console.log(this.value) 
-  document.querySelector('input[name="s"]').oninput=function(){
-    carregarArquivoTexto(document.querySelector('select[name="a"]').value,this.value);
+  button.setAttribute('data-bs-target',"#"+item.titulo.replace(/\s+/g, ''));
+  button.classList.remove('d-none');
+  navClonado_topicos_syss.querySelector('div[name="content"]').id=item.titulo.replace(/\s+/g, '');
+  //button.classList.remove('d-none');
   
-  }
-}
+  // Define o título e o texto para o clone
+  button.textContent = item.titulo;
+  navClonado_topicos_syss.querySelector('p[name="desc_topicos_syss"]').textContent = item.texto;
+  a.setAttribute('href',"#"+item.titulo.replace(/\s+/g, '').toLowerCase());
 
-// Função para carregar um arquivo de texto e processar seus dados
-function carregarArquivoTexto(caminhoArquivo,nome) {
-  console.log(caminhoArquivo) 
-// Faz uma requisição para carregar o arquivo de texto
-fetch(caminhoArquivo)
-.then(response => response.text()) // Converte a resposta em texto
-.then(data => {
-// Processa os dados (exemplo: dividindo o conteúdo em linhas)
-//const linhas = data.split('\n');
+  // Adiciona o clone ao documento
+  document.querySelector('aside[name="body_topicos_syss"]').querySelector('.dropdown-content').appendChild(navClonado_topicos_syss);
 
-  console.log(caminhoArquivo) 
-// Exibe as linhas no console (você pode fazer o que desejar com elas)
-//console.log(data.replace(/,/g, '\n'));
-console.log(data.toLowerCase().includes(","+nome.toLowerCase()+","));
-  document.getElementById('nome').innerText=nome;
-})
-.catch(error => {
-// Trata erros
-console.error('Erro ao carregar o arquivo:', error);
+
+  a.onclick = function(event) {
+    object_conteudo_geral.setAttribute('data',"template_syss/"+a.getAttribute('href').replace("#", "")+".html");
+    object_conteudo_geral.style.display="block";
+    document.querySelector('.dropdown-content').style.display="none";
+  };
 });
+
+document.getElementById('btnConteudo').onclick=function(){
+  if(document.querySelector('.dropdown-content').style.display=="block"){
+    document.querySelector('.dropdown-content').style.display="none";
+  }else{
+    document.querySelector('.dropdown-content').style.display="block";
+  }
 }
 
 
@@ -323,9 +199,7 @@ console.error('Erro ao carregar o arquivo:', error);
 
 
       </script>
-
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-      <script src="../config/js/cheatsheet.js"></script>
   </body>
 </html>
