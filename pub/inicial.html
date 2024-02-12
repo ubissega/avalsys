@@ -77,26 +77,25 @@
   <body class="">
     
 <header class="bd-header py-3 d-flex align-items-stretch border-bottom border-dark">
-  <div class="container-fluid d-flex align-items-center">
-    <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+  <div class="container-fluid d-flex align-items-center d-flex justify-content-between">
+    <h1 class="d-flex align-items-center fs-4 text-white mb-0 ">
       <img src="../img/logo_main.png"  height="50" class="me-3" alt="AVAL service">
-      AVAL service
     </h1>
 
-    <li class="nav-item dropdown ms-auto ">
-    <button class="brd-pattern show btn collapsed link-light" data-bs-toggle="dropdown" role="button" aria-expanded="false"><span name="email"></span></button>
-      <ul class="dropdown-menu show" data-bs-popper="none">
+    <div class="btn-group dropbottom">
+      <button type="button" class="btn dropdown-toggle brd-pattern link-light " data-bs-toggle="dropdown" aria-expanded="false" id="btnMenu_csd"></button><!--canto superior direito-->
+      <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#panel-principal">Painel principal</a></li>
-        <li><a class="dropdown-item" href="#título1g">Calculador</a></li>
+        <li><button type="button" class="dropdown-item text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sobre usuario</button></li>
         <li><span class="dropdown-item text-center" id="data"></span></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="../index.html">Terminar sessao</a></li>
       </ul>
-    </li>
+    </div>
   </div>
 </header>
   <aside id="idaside_conteudo" name="body_topicos_syss" class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-    <h2 class="h6 pt-4 pb-3 mb-4 border-bottom " id="btnConteudo">Conteudo</h2>
+    <h2 class="h6 pt-4 pb-3 mb-4 border-bottom " id="btnConteudo">Serviço</h2>
     <div class="dropdown-content">
       <nav name="container_topicos_syss" class="small" id="toc">
           <button name="btn_topicos_syss" class=" btn btn-primary d-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></button>
@@ -106,7 +105,7 @@
           <div class="card card-body">
             <p name="desc_topicos_syss">            
               <ul class="list-unstyled ps-3 ">
-                <li><a name="link_on_conteudo" class="d-inline-flex align-items-center rounded" href="#typography">Typography</a></li>
+                <li><a name="link_on_conteudo" class="d-inline-flex align-items-center rounded" href="#typography">Abrir</a></li>
               </ul>
             </p>
           </div>
@@ -117,19 +116,63 @@
   <object class="bd-cheatsheet container-fluid bg-body" name="container_conteudo_geral" width="100%" height="700px" style="display: none;"></object>
 
 
-<script type="text/javascript">
+  <modal>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Dados do usuario</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="">
+          <p><img class="form-control" width="100%" alt="foto do perfil" /></p>
+          <p class="form-control justify-content-between"><span>Email</span><span id="email"></span></p>
+          <p class="form-control">N<span id="nome"></span></p>
+          <p class="form-control"><span id="apelido"></span></p>
+          <p class="form-control"><span id="sexo"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </modal>
+
+
+<script type="module">
+
+  import { getAuth, signInWithEmailAndPassword ,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    // index.js
+    import { init } from '../config/conexao_firebase_aval.js';
+    const auth = getAuth(init); // Obtendo a instância de autenticação
+
+    // Observador de mudança de estado de autenticação
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Usuário está autenticado
+        document.getElementById('btnMenu_csd').innerText=user.email;
+        document.getElementById('email').innerText=user.email;
+      } else {
+        // Não há usuário autenticado
+        console.log("Nenhum usuário autenticado");
+      }
+    });
+
+
+
+
+
+
 
 const listaDeConteudo = [
     { titulo: "Matematica", texto: "Texto correspondente ao Título 1" },
     { titulo: "Fisica", texto: "Texto correspondente ao Título 2" },
-    { titulo: "Quimica", texto: "Texto correspondente ao Título 1" },
-    { titulo: "Título 2s", texto: "Texto correspondente ao Título 2" },
-    { titulo: "Título 1g", texto: "Texto correspondente ao Título 1" },
-    { titulo: "Título 2j", texto: "Texto correspondente ao Título 2" },
-    { titulo: "Título pp1", texto: "Texto correspondente ao Título 1" },
-    { titulo: "Título 2nn", texto: "Texto correspondente ao Título 2" },
-    { titulo: "Título 3bb", texto: "Texto correspondente ao Título 3" },
-    { titulo: "sistemasletras", texto: "Texto correspondente ao Título 3" }
+    { titulo: "Portugues", texto: "Texto correspondente ao Título 2" },
+    { titulo: "Sistema de letras", texto: "Texto correspondente ao Título 3" }
 ];
 
 
