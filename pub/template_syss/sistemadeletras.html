@@ -1,0 +1,67 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+<link href="../../config/style/cheatsheet.css" rel="stylesheet">
+<body>
+<div name="container_conteudo_gerall" class="bd-cheatsheet container-fluid bg-body">
+  <section name="select_conteudo_geralizado" id="components">
+    <h2 name="titular_do_conteudo_geralizado" class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3">Letras<span id="relogio"></span></h2>
+
+          
+    <article name="article_conteudo_geralizado" class="my-3" id="panel-principal">
+      <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+        <h3>Nomes</h3>
+        <a class="d-flex align-items-center" href="../components/carousel/">Desftrute de nos, bons conteudos e guarde suas informacoes escolares, garantimos a sua seguran</a>
+
+      </div>
+
+      <div>
+        <div class="">
+          <div class="d-grid text-dark">
+            <p><input class="col-12 form-control" type="text" id="search" placeholder="Buscar"/></p>
+            <p><label class="col-12 form-control" id="resultado"></label></p>
+          </div>          
+        </div>
+      </div>
+    </article>
+  </section>
+</div>
+</body>
+<script type="text/javascript">
+
+document.getElementById('search').oninput=function(){
+  carregarArquivoTexto("./nomes/nomesf.txt",this.value.replace(' ',''));  
+}
+
+// Função para carregar um arquivo de texto e processar seus dados
+function carregarArquivoTexto(caminhoArquivo,nome) {
+  
+  
+  document.getElementById('resultado').innerText=nome+" não é nome";
+  // Faz uma requisição para carregar o arquivo de texto Converte a resposta em texto
+  //---------------------------------------------------------------------------------
+  fetch("nomes/nomesf.txt").then(response => response.text()).then(data => {
+
+  
+    if(data.toLowerCase().includes(","+nome.toLowerCase()+",")){
+      document.getElementById('resultado').innerText=nome+" não é feminino";
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao carregar o arquivo:', error);
+  });
+  fetch("nomes/nomesm.txt").then(response => response.text()).then(data => {  
+    if(data.toLowerCase().includes(","+nome.toLowerCase()+",")){
+      document.getElementById('resultado').innerText=nome+" não é masculino";
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao carregar o arquivo:', error);
+  });
+
+
+}
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="../../config/js/cheatsheet.js"></script>
